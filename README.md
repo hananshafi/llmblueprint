@@ -21,4 +21,4 @@ Official implementation of the paper "Align Your Prompts: Test-Time Prompting wi
 <hr>
 
 ## Code
-The full code for the paper will be available soon!
+The full code for the paper will be available soon! Check back after a while.
