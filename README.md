@@ -22,3 +22,18 @@ Official implementation of the paper "Align Your Prompts: Test-Time Prompting wi
 
 ## Code
 The full code for the paper will be available soon! Check back after a while.
+
+
+## Contact
+Should you have any questions, please contact at hanan.ghani@mbzuai.ac.ae
+
+## Citation
+If you use our work, please consider citing:
+```bibtex 
+@inproceedings{Gani_2023_llmblueprint,
+author    = {Hanan Gani and Shariq Farooq Bhat and Muzammal Naseer and Salman Khan and Peter Wonka},
+title     = {LLM Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts},
+booktitle = {arXiv preprint},
+year      = {2023},}
+}
+```
