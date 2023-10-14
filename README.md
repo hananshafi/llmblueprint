@@ -9,3 +9,4 @@ Official implementation of the paper "Align Your Prompts: Test-Time Prompting wi
 
 <hr>
 
+![intro-diagram](https://github.com/hananshafi/llmblueprint/blob/main/docs/intro_image_arxiv.png)
