@@ -1,4 +1,5 @@
-# LLM Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts (code will be available soon!)
+# LLM Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts 
+(code will be available soon!)
 [Hanan Gani<sup>1</sup>](https://hananshafi.github.io/), [Shariq Farooq Bhat<sup>2</sup>](https://shariqfarooq123.github.io/), [Muzammal Naseer<sup>1</sup>](https://muzammal-naseer.com/), [Salman Khan<sup>1</sup>](https://salman-h-khan.github.io/), [Peter Wonka<sup>2</sup>](https://peterwonka.net/)
 
 <sup>1</sup>MBZUAI      <sup>2</sup>KAUST
