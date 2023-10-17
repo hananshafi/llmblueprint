@@ -30,10 +30,12 @@ Should you have any questions, please contact at hanan.ghani@mbzuai.ac.ae
 ## Citation
 If you use our work, please consider citing:
 ```bibtex 
-@inproceedings{Gani_2023_llmblueprint,
-author    = {Hanan Gani and Shariq Farooq Bhat and Muzammal Naseer and Salman Khan and Peter Wonka},
-title     = {LLM Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts},
-booktitle = {arXiv preprint},
-year      = {2023},}
+@misc{gani2023llm,
+      title={LLM Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts}, 
+      author={Hanan Gani and Shariq Farooq Bhat and Muzammal Naseer and Salman Khan and Peter Wonka},
+      year={2023},
+      eprint={2310.10640},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
