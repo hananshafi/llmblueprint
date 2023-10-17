@@ -3,7 +3,7 @@
 
 <sup>1</sup>MBZUAI      <sup>2</sup>KAUST
 
-[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2210.07240v1)
+[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2310.10640)
 
 Official implementation of the paper "Align Your Prompts: Test-Time Prompting with Distribution Alignment for Zero-Shot Generalization".
 
