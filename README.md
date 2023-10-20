@@ -5,7 +5,7 @@
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2310.10640)
 
-Official implementation of the paper "Align Your Prompts: Test-Time Prompting with Distribution Alignment for Zero-Shot Generalization".
+Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts".
 
 <hr>
 
