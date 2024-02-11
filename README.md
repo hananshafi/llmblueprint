@@ -11,6 +11,44 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 
 <hr>
 
+## Contents
+
+1. [Updates](#News)
+2. [Highlights](#Highlights)
+3. [Main Contributions](#Main-Contributions)
+4. [Installation](#Installation)
+5. [Run PromptAlign](#Run-PromptAlign)
+6. [Results](#Results)
+7. [Citation](#Citation)
+8. [Contact](#Contact)
+9. [Acknowledgements](#Acknowledgements)
+
+<hr>
+
+## Updates
+
+* Code for PrompAlign is released. [November 3, 2023]
+* Our paper is accepted at NeurIPS 2023 [September 22, 2023]
+
+## Highlights
+![concept-diagram](https://jameelhassan.github.io/promptalign/static/images/conceptdiagram.png)
+
+> **Abstract:** *The promising zero-shot generalization of vision-language models such as CLIP
+has led to their adoption using prompt learning for numerous downstream tasks.
+Previous works have shown test-time prompt tuning using entropy minimization
+to adapt text prompts for unseen domains. While effective, this overlooks the key
+cause for performance degradation to unseen domains – distribution shift. In this
+work, we explicitly handle this problem by aligning the out-of-distribution (OOD)
+test sample statistics to those of the source data using prompt tuning. We use a
+single test sample to adapt multi-modal prompts at test time by minimizing the
+feature distribution shift to bridge the gap in the test domain. Evaluating against the
+domain generalization benchmark, our method improves zero-shot top-1 accuracy
+beyond existing prompt-learning techniques, with a 3.08% improvement over the
+baseline MaPLe. In cross-dataset generalization with unseen categories across 10
+datasets, our method improves by 1.82% compared to the existing state-of-the-art.*
+>
+<hr>
+
 ![intro-diagram](https://github.com/hananshafi/llmblueprint/blob/main/docs/intro_image_arxiv.png)
 
 
