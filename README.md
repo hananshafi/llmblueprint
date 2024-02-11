@@ -31,7 +31,7 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 * Our paper is accepted at NeurIPS 2023 [September 22, 2023]
 
 ## Highlights
-![concept-diagram](https://jameelhassan.github.io/promptalign/static/images/conceptdiagram.png)
+![intro-diagram](https://github.com/hananshafi/llmblueprint/blob/main/docs/intro_image_arxiv.png)
 
 > **Abstract:** *The promising zero-shot generalization of vision-language models such as CLIP
 has led to their adoption using prompt learning for numerous downstream tasks.
@@ -48,8 +48,6 @@ baseline MaPLe. In cross-dataset generalization with unseen categories across 10
 datasets, our method improves by 1.82% compared to the existing state-of-the-art.*
 >
 <hr>
-
-![intro-diagram](https://github.com/hananshafi/llmblueprint/blob/main/docs/intro_image_arxiv.png)
 
 
 <hr>
