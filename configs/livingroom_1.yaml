@@ -1,0 +1,27 @@
+layout2image_model_path: ""
+composition_model_path: ""
+output_dir: "./outputs/flowers"
+exp_name: "livingroom_1"
+
+prompt_info:
+  text_prompt: "In a cozy living room, a heartwarming scene unfolds. A friendly and affectionate Golden Retriever with a soft, golden-furred coat rests contently on a plush rug, its warm eyes filled with joy. Nearby, a graceful and elegant white cat stretches leisurely, showcasing its pristine and fluffy fur. A sturdy wooden table with polished edges stands gracefully in the center, adorned with a vase of vibrant flowers adding a touch of freshness. On the wall, a sleek modern television stands ready to provide entertainment. The ambiance is warm, inviting, and filled with a sense of companionship and relaxation."
+  keypoints: "[('a Golden Retriever', [97, 280, 198, 132]), ('a white cat', [60, 240, 125, 76]), ('a wooden table', [184, 163, 144, 86]), ('a vase of flowers', [199, 67, 55, 110]), ('sleek television', [391, 21, 101, 63])]"
+  bg_prompt: "a cozy living room filled with a sense of companionship and relaxation"
+  obj_descs: "[('Golden Retriever',['A friendly and affectionate Golden Retriever with a soft, golden-furred coat and its warm eyes filled with joy.']), ('white cat',['a graceful white cat gracefully stretching, showing off its fluffy, pristine fur'], ('sleek television',['a sleek and modern television']),('vase of flowers',['a vase of vibrant flowers']), ('wooden table',['a wooden table'])]"
+
+
+first_stage_gen_config:
+  num_layouts: 1
+  diffusion_steps: 20
+  seed: 42
+  use_llm: False
+
+
+second_stage_gen_config:
+  enable: True
+  diffusion_steps: 50
+  seed: 32
+  add_guidance: True
+  optim_steps: 1
+  guidance_weight: 200
+  skip_small: False
