@@ -27,8 +27,8 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 
 ## Updates
 
-* Code for PrompAlign is released. [November 3, 2023]
-* Our paper is accepted at NeurIPS 2023 [September 22, 2023]
+* Code is released. [Feb 12, 2024]
+* Our paper is accepted at ICLR 2024 [Jan 15, 2024]
 
 ## Highlights
 ![intro-diagram](https://github.com/hananshafi/llmblueprint/blob/main/docs/intro_image_arxiv.png)
