@@ -41,3 +41,5 @@ If you use our work, please consider citing:
       primaryClass={cs.CV}
 }
 ```
+## Acknowledgements
+Our code is built on the repositories of  [LLM Grounded Diffusion](https://github.com/TonyLianLong/LLM-groundedDiffusion) and [Paint by Example](https://github.com/Fantasy-Studio/Paint-by-Example). We thank them for their open-source implementation and instructions.
