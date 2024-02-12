@@ -25,7 +25,7 @@ from transformers import GPT2TokenizerFast
 import torch.nn.functional as F
 from torchmetrics.multimodal import CLIPScore
 from helper_functions import *
-from image_composition.my_paint_by_example import *
+from composition_module.my_paint_by_example import *
 import backoff 
 import re
 import time
