@@ -17,7 +17,7 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 2. [Highlights](#Highlights)
 3. [Main Contributions](#Main-Contributions)
 4. [Installation](#Installation)
-5. [Run PromptAlign](#Run-PromptAlign)
+5. [Run LLMBlueprint](#Run-LLMBlueprint)
 6. [Results](#Results)
 7. [Citation](#Citation)
 8. [Contact](#Contact)
@@ -55,6 +55,13 @@ them with their textual descriptions, recomposing objects as needed to ensure co
 
 ## Installation
 For installation and other package requirements, please follow the instructions detailed in [INSTALL.md](https://github.com/hananshafi/llmblueprint/blob/main/docs/INSTALL.md)
+
+<hr>
+
+## Run LLMBlueprint
+
+
+<hr>
 
 
 ## Contact
