@@ -454,7 +454,7 @@ if __name__=="__main__":
     ############################ first stage generation ###########################################
     text_prompt = conf.prompt_info.text_prompt
     bg_prompt = conf.prompt_info.bg_prompt
-    layout =  ast.prompt_info(conf.first_stage_gen_config.keypoints)
+    layout =  ast.literal_eval(conf.prompt_info.keypoints)
     object_descs = ast.literal_eval(conf.prompt_info.obj_descs)
 
 
