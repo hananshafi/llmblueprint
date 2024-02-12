@@ -38,7 +38,7 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 <hr>
 
 ## Main Contributions
-* **Distribution alignment using a single sample:** we present a novel approach leveraging Large Language Models (LLMs)
+* **Scene Blueprints:** we present a novel approach leveraging Large Language Models (LLMs)
 to extract critical components from text prompts, including bounding box coordinates for foreground objects, detailed textual descriptions for individual objects,
 and a succinct background context. Utilizing bounding 
 * **Global Scene Generation:** Utilzing the bounding box layout and genralized background prompt, we generate an initial image using Layout-to-Image generator.
