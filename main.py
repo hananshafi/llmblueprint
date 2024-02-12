@@ -12,14 +12,13 @@ from generation import run as run_layout_to_image
 from baseline import run as run_baseline
 import torch
 from shared import DEFAULT_SO_NEGATIVE_PROMPT, DEFAULT_OVERALL_NEGATIVE_PROMPT
-from examples import stage1_examples, stage2_examples
 from segment_anything import build_sam, SamPredictor 
 from PIL import Image
 print(f"Is CUDA available: {torch.cuda.is_available()}")
 if torch.cuda.is_available():
     print(f"CUDA device: {torch.cuda.get_device_name(torch.cuda.current_device())}")
 import openai
-from diffusers import PaintByExamplePipeline
+# from diffusers import PaintByExamplePipeline
 from transformers import GPT2TokenizerFast
 # from paint_by_example.my_paint_by_example import main_paint_by_example
 import torch.nn.functional as F
