@@ -45,13 +45,11 @@ and a succinct background context. Utilizing bounding
 * **Iterative Refinement Scheme :** Given the initial image, our proposed refinement mechanism iteratively evaluates and refines the box-level content of each object to align
 them with their textual descriptions, recomposing objects as needed to ensure consistency.
 
-<hr>
 
 ## Methodology
 ![main-figure](https://github.com/hananshafi/llmblueprint/blob/main/docs/iclr_main_figure_arxiv.png)
 
 
-<hr>
 
 ## Installation
 This codebase is tested on Ubuntu 20.04.2 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
@@ -66,7 +64,6 @@ conda activate llmblueprint
 # Install requirements
 pip install -r requirements.txt
 ```
-<hr>
 
 ## Run LLMBlueprint
 
@@ -74,8 +71,6 @@ pip install -r requirements.txt
 ```bash
 python main.py --config configs/livingroom_1.yaml
 ```
-
-<hr>
 
 
 ## Contact
