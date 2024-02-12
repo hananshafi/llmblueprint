@@ -33,19 +33,7 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 ## Highlights
 ![intro-diagram](https://github.com/hananshafi/llmblueprint/blob/main/docs/intro_image_arxiv.png)
 
-> **Abstract:** *The promising zero-shot generalization of vision-language models such as CLIP
-has led to their adoption using prompt learning for numerous downstream tasks.
-Previous works have shown test-time prompt tuning using entropy minimization
-to adapt text prompts for unseen domains. While effective, this overlooks the key
-cause for performance degradation to unseen domains – distribution shift. In this
-work, we explicitly handle this problem by aligning the out-of-distribution (OOD)
-test sample statistics to those of the source data using prompt tuning. We use a
-single test sample to adapt multi-modal prompts at test time by minimizing the
-feature distribution shift to bridge the gap in the test domain. Evaluating against the
-domain generalization benchmark, our method improves zero-shot top-1 accuracy
-beyond existing prompt-learning techniques, with a 3.08% improvement over the
-baseline MaPLe. In cross-dataset generalization with unseen categories across 10
-datasets, our method improves by 1.82% compared to the existing state-of-the-art.*
+> **Abstract:** *Diffusion-based generative models have significantly advanced text-to-image generation but encounter challenges when processing lengthy and intricate text prompts describing complex scenes with multiple objects. While excelling in generating images from short, single-object descriptions, these models often struggle to faithfully capture all the nuanced details within longer and more elaborate textual inputs. In response, we present a novel approach leveraging Large Language Models (LLMs) to extract critical components from text prompts, including bounding box coordinates for foreground objects, detailed textual descriptions for individual objects, and a succinct background context. These components form the foundation of our layout-to-image generation model, which operates in two phases. The initial Global Scene Generation utilizes object layouts and background context to create an initial scene but often falls short in faithfully representing object characteristics as specified in the prompts. To address this limitation, we introduce an Iterative Refinement Scheme that iteratively evaluates and refines box-level content to align them with their textual descriptions, recomposing objects as needed to ensure consistency. Our evaluation on complex prompts featuring multiple objects demonstrates a substantial improvement in recall compared to baseline diffusion models. This is further validated by a user study, underscoring the efficacy of our approach in generating coherent and detailed scenes from intricate textual inputs.*
 >
 <hr>
 
