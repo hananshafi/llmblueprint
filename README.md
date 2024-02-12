@@ -53,8 +53,8 @@ them with their textual descriptions, recomposing objects as needed to ensure co
 
 <hr>
 
-## Code
-The full code for the paper will be available soon! Check back after a while.
+## Installation
+For installation and other package requirements, please follow the instructions detailed in [INSTALL.md](https://github.com/hananshafi/llmblueprint/blob/master/docs/INSTALL.md)
 
 
 ## Contact
