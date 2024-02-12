@@ -67,6 +67,8 @@ pip install -r requirements.txt
 
 ## Run LLMBlueprint
 
+Download the pretrained weights of composition model from [here](https://github.com/Fantasy-Studio/Paint-by-Example) and provide its path in yaml place inside configs folder.
+
 #### Generate
 ```bash
 python main.py --config configs/livingroom_1.yaml
