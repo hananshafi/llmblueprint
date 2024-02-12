@@ -1,5 +1,5 @@
 composition_model_path: ""
-output_dir: "./outputs/flowers"
+output_dir: "./outputs/livingroom"
 exp_name: "livingroom_1"
 
 prompt_info:
