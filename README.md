@@ -73,7 +73,7 @@ Download the pretrained weights of composition model from [here](https://github.
 ```bash
 python main.py --config configs/livingroom_1.yaml
 ```
-
+The hyperparameters and input arguments can be modified inside yaml files.
 
 ## Contact
 Should you have any questions, please contact at hanan.ghani@mbzuai.ac.ae
