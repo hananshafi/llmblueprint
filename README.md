@@ -54,7 +54,7 @@ them with their textual descriptions, recomposing objects as needed to ensure co
 <hr>
 
 ## Installation
-For installation and other package requirements, please follow the instructions detailed in [INSTALL.md](https://github.com/hananshafi/llmblueprint/blob/master/docs/INSTALL.md)
+For installation and other package requirements, please follow the instructions detailed in [INSTALL.md](https://github.com/hananshafi/llmblueprint/blob/main/docs/INSTALL.md)
 
 
 ## Contact
