@@ -54,10 +54,8 @@ them with their textual descriptions, recomposing objects as needed to ensure co
 <hr>
 
 ## Installation
-For installation and other package requirements, please follow the instructions detailed in [INSTALL.md](https://github.com/hananshafi/llmblueprint/blob/main/docs/INSTALL.md)
 This codebase is tested on Ubuntu 20.04.2 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
 
-* #### Setup environment.
 ```bash
 # Create a conda environment
 conda create -n llmblueprint python==3.8
@@ -72,6 +70,10 @@ pip install -r requirements.txt
 
 ## Run LLMBlueprint
 
+#### Generate
+```bash
+python main.py --config configs/livingroom_1.yaml
+```
 
 <hr>
 
