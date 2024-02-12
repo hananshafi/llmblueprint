@@ -1,4 +1,3 @@
-layout2image_model_path: ""
 composition_model_path: ""
 output_dir: "./outputs/flowers"
 exp_name: "livingroom_1"
