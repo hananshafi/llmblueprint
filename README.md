@@ -28,7 +28,7 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 ## Updates
 
 * Code is released. [Feb 12, 2024]
-* Our paper is accepted at ICLR 2024 [Jan 15, 2024]
+* Our paper is accepted at **ICLR 2024** [Jan 15, 2024]
 
 ## Highlights
 ![intro-diagram](https://github.com/hananshafi/llmblueprint/blob/main/docs/intro_image_arxiv.png)
@@ -37,6 +37,13 @@ Official implementation of the paper "LLM Blueprint: Enabling Text-to-Image Gene
 >
 <hr>
 
+## Main Contributions
+* **Distribution alignment using a single sample:** we present a novel approach leveraging Large Language Models (LLMs)
+to extract critical components from text prompts, including bounding box coordinates for foreground objects, detailed textual descriptions for individual objects,
+and a succinct background context. Utilizing bounding 
+* **Global Scene Generation:** Utilzing the bounding box layout and genralized background prompt, we generate an initial image using Layout-to-Image generator.
+* **Iterative Refinement Scheme :** Given the initial image, our proposed refinement mechanism iteratively evaluates and refines the box-level content of each object to align
+them with their textual descriptions, recomposing objects as needed to ensure consistency.
 
 <hr>
 
