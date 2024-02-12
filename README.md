@@ -47,7 +47,7 @@ them with their textual descriptions, recomposing objects as needed to ensure co
 
 
 ## Methodology
-![main-figure](https://github.com/hananshafi/llmblueprint/blob/main/docs/iclr_main_figure_arxiv.png)
+![main-figure](https://github.com/hananshafi/llmblueprint/blob/main/docs/iclr_main_figure_revised.png)
 
 
 
