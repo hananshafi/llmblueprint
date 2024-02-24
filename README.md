@@ -1,5 +1,5 @@
 # LLM Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts [ICLR 2024]
-Visit our project page: https://hananshafi.github.io/llm-blueprint/
+Visit our [project page](https://hananshafi.github.io/llm-blueprint/)
 
 [Hanan Gani<sup>1</sup>](https://hananshafi.github.io/), [Shariq Farooq Bhat<sup>2</sup>](https://shariqfarooq123.github.io/), [Muzammal Naseer<sup>1</sup>](https://muzammal-naseer.com/), [Salman Khan<sup>1,3</sup>](https://salman-h-khan.github.io/), [Peter Wonka<sup>2</sup>](https://peterwonka.net/)
 
