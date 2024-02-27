@@ -12,7 +12,7 @@ from generation import run as run_layout_to_image
 from baseline import run as run_baseline
 import torch
 from shared import DEFAULT_SO_NEGATIVE_PROMPT, DEFAULT_OVERALL_NEGATIVE_PROMPT
-from segment_anything import build_sam, SamPredictor 
+#from segment_anything.segment_anything import build_sam, SamPredictor 
 from PIL import Image
 print(f"Is CUDA available: {torch.cuda.is_available()}")
 if torch.cuda.is_available():
@@ -40,14 +40,13 @@ pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
 
 box_scale = (512, 512)
 size = box_scale
-clipiqa = CLIPIQA()
 clip_metric = CLIPScore(model_name_or_path="openai/clip-vit-base-patch16").cuda()
 repo_id = "stabilityai/stable-diffusion-2-base"
 sd_pipe = DiffusionPipeline.from_pretrained(repo_id, torch_dtype=torch.float16, revision="fp16")
 
 sd_pipe.scheduler = DPMSolverMultistepScheduler.from_config(sd_pipe.scheduler.config)
 sd_pipe = sd_pipe.to("cuda")
-
+bg_prompt_text = "Background prompt: "
 
 openai.api_key = ""
 
@@ -414,11 +413,13 @@ def crop_image(img, bbox):
     cropped_region = img[:,y:y+h,x:x+w] #img[:,x:x+w,y:y+h]
     return cropped_region #torchvision.transforms.Resize((512,512))(cropped_region)
 
-def iterative_refinement(first_stage_gen, objects_dict_bboxes,objects_dict_desc, add_guidance=True, optim_steps=1,guidance_weight=200,skip_small=False):
+def iterative_refinement(first_stage_gen, objects_dict_bboxes,objects_dict_desc, add_guidance=True, optim_steps=1,guidance_weight=200,skip_small=False, ckpt_path=None):
     shift_flag=False
     
     for obj, bbox in objects_dict_bboxes.items():
+        print(obj, objects_dict_desc.keys())
         if obj in objects_dict_desc.keys():
+            print("entering ------")
             object_desc = objects_dict_desc[obj]
             if not shift_flag:
                 torch_image = first_stage_gen
@@ -426,15 +427,16 @@ def iterative_refinement(first_stage_gen, objects_dict_bboxes,objects_dict_desc,
 
             
             clip_score = get_clip_metric(torch_image.cuda(),tuple(bbox), target_text=object_desc)
-            if clip_score < 0.2:
-                if skip_small:
-                    if (bbox[-1]*bbox[-2])/(512*512)>0.01:
+            print(clip_score)
+            if clip_score < 0.25:
+                # if skip_small:
+                    # if (bbox[-1]*bbox[-2])/(512*512)>0.01:
                         shift_flag=True
                         ref_image = gen_hq_image_sd(object_desc)
                         image_mask_pil = create_square_mask(pil_image,tuple(bbox))
                         p_by_ex, torch_ex = main_paint_by_example(img_p=pil_image, ref_p=ref_image, mask=image_mask_pil,
                                                                     bbox=bbox,text_desc=object_desc,
-                                                                    add_guidance=add_guidance, optim_steps=optim_steps, guidance_weight=guidance_weight)
+                                                                    add_guidance=add_guidance, optim_steps=optim_steps, guidance_weight=guidance_weight, ckpt_path=ckpt_path)
                         torch_image=torch_ex
                         pil_image=p_by_ex
     return pil_image,torch_image
@@ -450,16 +452,16 @@ if __name__=="__main__":
 
 
     conf = OmegaConf.load(args.config)
+    os.makedirs(conf.out_dir, exist_ok=True)
 
     ############################ first stage generation ###########################################
     text_prompt = conf.prompt_info.text_prompt
     bg_prompt = conf.prompt_info.bg_prompt
     layout =  ast.literal_eval(conf.prompt_info.keypoints)
     object_descs = ast.literal_eval(conf.prompt_info.obj_descs)
-
-
-
-    first_stage_image, response = first_stage_gen_with_interpolation([str(layout) + "\n" + bg_prompt],num_layouts=conf.first_stage_gen_config.num_layouts,num_inference_steps=conf.first_stage_gen_config.diffusion_steps,seed=conf.first_stage_gen_config.seed)
+    object_descs  = {key: value[0] for key, value in object_descs}
+    print(object_descs)
+    first_stage_image, response = first_stage_gen_with_interpolation([str(layout) + "\n" + bg_prompt_text + bg_prompt],num_layouts=conf.first_stage_gen_config.num_layouts,num_inference_steps=conf.first_stage_gen_config.diffusion_steps,seed=conf.first_stage_gen_config.seed)
     
     if not conf.second_stage_gen_config.enable:
         Image.fromarray(first_stage_image[0]).save(os.path.join(conf.out_dir, conf.exp_name + "_first_stage.png"))
@@ -478,10 +480,11 @@ if __name__=="__main__":
     #first_phase_pil = Image.fromarray(first_stage_gen_dict[0])
     #first_stage_image = pipe(prompt=text, image=first_phase_pil, strength=0.75, guidance_scale=7.5, generator=generator).images[0]
 
+    first_phase_pil = Image.fromarray(first_stage_image[0])
 
-    pil_img, _ = iterative_refinement(first_stage_image, sorted_bbox_dict,object_descs, add_guidance=conf.second_stage_gen_config.add_guidance,
-                    optim_steps=conf.second_stage_gen_config.optim_steps,guidance_weight=conf.second_stage_gen_config.guidance_weight,skip_small=conf.second_stage_gen_config.skip_small)
+    pil_img, _ = iterative_refinement(torchvision.transforms.ToTensor()(first_phase_pil).permute(1,2,0), sorted_bbox_dict,object_descs, add_guidance=conf.second_stage_gen_config.add_guidance,
+                    optim_steps=conf.second_stage_gen_config.optim_steps,guidance_weight=conf.second_stage_gen_config.guidance_weight,skip_small=conf.second_stage_gen_config.skip_small,ckpt_path=conf.composition_model_path )
 
-    pil.save(os.path.join(conf.out_dir,conf.exp_name +  "_second_stage.png"))
-    Image.fromarray(first_stage_image[0]).save(os.path.join(conf.out_dir, conf.exp_name + "_first_stage.png"))
+    pil_img.save(os.path.join(conf.out_dir,conf.exp_name +  "_second_stage.png"))
+    first_phase_pil.save(os.path.join(conf.out_dir, conf.exp_name + "_first_stage.png"))
     print("generation finished . . . check {} directory for outputs".format(conf.out_dir))

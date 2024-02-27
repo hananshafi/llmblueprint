@@ -61,8 +61,14 @@ conda create -n llmblueprint python==3.8
 # Activate the environment
 conda activate llmblueprint
 
+#Install torch
+conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.7 -c pytorch -c nvidia
+
 # Install requirements
 pip install -r requirements.txt
+
+# Additionally do this step at the end
+python -m spacy download en_core_web_md
 ```
 
 ## Run LLMBlueprint

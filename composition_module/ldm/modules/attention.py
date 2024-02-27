@@ -6,7 +6,6 @@ from torch import nn, einsum
 from einops import rearrange, repeat
 
 from ldm.modules.diffusionmodules.util import checkpoint
-import loralib as lora
 
 def exists(val):
     return val is not None
@@ -158,12 +157,12 @@ class CrossAttention(nn.Module):
         self.scale = dim_head ** -0.5
         self.heads = heads
 
-        #self.to_q = nn.Linear(query_dim, inner_dim, bias=False)
-        self.to_q = lora.Linear(query_dim, inner_dim, r=16)
-        #self.to_k = nn.Linear(context_dim, inner_dim, bias=False)
-        self.to_k = lora.Linear(context_dim, inner_dim, r=16)
-        #self.to_v = nn.Linear(context_dim, inner_dim, bias=False)
-        self.to_v = lora.Linear(context_dim, inner_dim, r=16)
+        self.to_q = nn.Linear(query_dim, inner_dim, bias=False)
+        #self.to_q = lora.Linear(query_dim, inner_dim, r=16)
+        self.to_k = nn.Linear(context_dim, inner_dim, bias=False)
+        #self.to_k = lora.Linear(context_dim, inner_dim, r=16)
+        self.to_v = nn.Linear(context_dim, inner_dim, bias=False)
+        #self.to_v = lora.Linear(context_dim, inner_dim, r=16)
 
         self.to_out = nn.Sequential(
             nn.Linear(inner_dim, query_dim),

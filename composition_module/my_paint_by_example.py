@@ -1,5 +1,6 @@
 import argparse, os, sys, glob
-sys.path.append(os.getcwd())
+sys.path.append(os.path.join(os.getcwd(),"composition_module"))
+#sys.path.append("composition_module")
 import cv2
 import torch
 import numpy as np
@@ -18,13 +19,11 @@ from contextlib import contextmanager, nullcontext
 import torchvision
 from ldm.util import instantiate_from_config
 from ldm.models.diffusion.ddim import DDIMSampler
-# from ldm.models.diffusion.ddim_with_grad import DDIMSamplerWithGrad
 from ldm.models.diffusion.plms import PLMSSampler
 from torchmetrics.multimodal import CLIPScore
 from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
 from transformers import AutoFeatureExtractor
 import clip
-import loralib as lora
 from torch import optim
 from torchvision.transforms import Resize
 from helper import OptimizerDetails
@@ -170,7 +169,7 @@ def get_tensor_clip(normalize=True, toTensor=True):
 
 
 @torch.enable_grad()
-def main_paint_by_example(img_p=None, ref_p=None, mask=None,gt_image=None, bbox=None,text_desc=None,add_guidance=True,optim_steps=1,guidance_weight=200):
+def main_paint_by_example(img_p=None, ref_p=None, mask=None,gt_image=None, bbox=None,text_desc=None,add_guidance=True,optim_steps=1,guidance_weight=200, ckpt_path=None):
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -269,13 +268,13 @@ def main_paint_by_example(img_p=None, ref_p=None, mask=None,gt_image=None, bbox=
     parser.add_argument(
         "--config",
         type=str,
-        default="./configs/v1.yaml",
+        default="/share/data/drive_2/Hanan/llmblueprint/composition_module/configs/v1.yaml",
         help="path to config which constructs model",
     )
     parser.add_argument(
         "--ckpt",
         type=str,
-        default="/home/ganimh/llm-grounded-diffusion/paint_by_example/checkpoints/model.ckpt",
+        default="/share/data/drive_1/hanan/llm_blueprint/paint_by_example/checkpoints/model.ckpt",
         help="path to checkpoint of model",
     )
     parser.add_argument(
@@ -313,9 +312,12 @@ def main_paint_by_example(img_p=None, ref_p=None, mask=None,gt_image=None, bbox=
 
 
     seed_everything(opt.seed)
-
-    config = OmegaConf.load(f"{opt.config}")
-    model = load_model_from_config(config, f"{opt.ckpt}")
+    config_path = os.path.join(os.getcwd(),"composition_module","configs/v1.yaml")
+    config = OmegaConf.load(config_path)   #f"{opt.config}")
+    if ckpt_path:
+    	model = load_model_from_config(config, ckpt_path)
+    else:
+    	model = load_model_from_config(config, f"{opt.ckpt}")
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     model = model.to(device)
     model.requires_grad_(True)
