@@ -87,14 +87,13 @@ Should you have any questions, please contact at hanan.ghani@mbzuai.ac.ae
 ## Citation
 If you use our work, please consider citing:
 ```bibtex 
-@inproceedings{
-      gani2024llm,
-      title={{LLM} Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts},
-      author={Hanan Gani and Shariq Farooq Bhat and Muzammal Naseer and Salman Khan and Peter Wonka},
-      booktitle={The Twelfth International Conference on Learning Representations},
-      year={2024},
-      url={https://openreview.net/forum?id=mNYF0IHbRy}
-}
+@inproceedings{gani2024llm,
+            title={{LLM} Blueprint: Enabling Text-to-Image Generation with Complex and Detailed Prompts},
+            author={Hanan Gani and Shariq Farooq Bhat and Muzammal Naseer and Salman Khan and Peter Wonka},
+            booktitle={The Twelfth International Conference on Learning Representations},
+            year={2024},
+            url={https://openreview.net/forum?id=mNYF0IHbRy}
+            }
 ```
 ## Acknowledgements
 Our code is built on the repositories of  [LLM Grounded Diffusion](https://github.com/TonyLianLong/LLM-groundedDiffusion) and [Paint by Example](https://github.com/Fantasy-Studio/Paint-by-Example). We thank them for their open-source implementation and instructions.
